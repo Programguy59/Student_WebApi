@@ -1,0 +1,6 @@
+@Student_WebApi_ADO_NET_HostAddress = http://localhost:5059
+
+GET {{Student_WebApi_ADO_NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
