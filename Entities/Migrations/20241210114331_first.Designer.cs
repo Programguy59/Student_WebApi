@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entities.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240926165722_Init")]
-    partial class Init
+    [Migration("20241210114331_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,9 @@ namespace Entities.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -106,7 +109,7 @@ namespace Entities.Migrations
             modelBuilder.Entity("Entities.Models.Student", b =>
                 {
                     b.HasOne("Entities.Models.Team", "Team")
-                        .WithMany()
+                        .WithMany("Students")
                         .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -141,6 +144,11 @@ namespace Entities.Migrations
             modelBuilder.Entity("Entities.Models.Student", b =>
                 {
                     b.Navigation("StudentCourses");
+                });
+
+            modelBuilder.Entity("Entities.Models.Team", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

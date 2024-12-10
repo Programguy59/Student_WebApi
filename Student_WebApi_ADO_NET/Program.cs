@@ -1,4 +1,5 @@
 
+using Entities;
 using Student_WebApi_ADO_NET.Extensions;
 
 namespace Student_WebApi_ADO_NET
@@ -10,6 +11,7 @@ namespace Student_WebApi_ADO_NET
             var builder = WebApplication.CreateBuilder(args);
             var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
+            
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureLoggerService();
 

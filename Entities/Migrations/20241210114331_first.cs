@@ -5,7 +5,7 @@
 namespace Entities.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

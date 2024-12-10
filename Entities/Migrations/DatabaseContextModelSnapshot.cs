@@ -17,6 +17,9 @@ namespace Entities.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -103,7 +106,7 @@ namespace Entities.Migrations
             modelBuilder.Entity("Entities.Models.Student", b =>
                 {
                     b.HasOne("Entities.Models.Team", "Team")
-                        .WithMany()
+                        .WithMany("Students")
                         .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -138,6 +141,11 @@ namespace Entities.Migrations
             modelBuilder.Entity("Entities.Models.Student", b =>
                 {
                     b.Navigation("StudentCourses");
+                });
+
+            modelBuilder.Entity("Entities.Models.Team", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

@@ -319,10 +319,10 @@ namespace Entities.Models
             var sqlConnectionSB = new SqlConnectionStringBuilder
             {
                 // Change these values to your values.
-                DataSource = "LAPTOP-COT3JNJ0", //["Server"]
-                InitialCatalog = "Student_WebApi_Core_8_0",                                       //["Database"]
-                UserID = "Username2",                                          // "@yourservername"  as suffix sometimes.
-                Password = "Password2",
+                DataSource = "sql.itcn.dk", //["Server"]
+                InitialCatalog = "magn82442.SKOLE",                                       //["Database"]
+                UserID = "magn8244.SKOLE",                                          // "@yourservername"  as suffix sometimes.
+                Password = "72Xh87JnCny",
                 // Adjust these values if you like. (ADO.NET 4.5.1 or later.)
                 //ConnectRetryCount = 3,  // LTPE
                 //ConnectRetryInterval = 10, // Seconds. LTPE
